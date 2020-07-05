@@ -10,7 +10,7 @@ let people=[
 		people =people.filter( person => person.id !== id)
 	}
 </script>
-<Modal/>
+<Modal message='Sign up for offers' isPromo={true}/>
 <main>
 { #each people as person (person.id)}
 <div>
