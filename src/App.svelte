@@ -1,17 +1,26 @@
 <script>
 import Modal from './Modal.svelte'
 
+let showModal= false
 let people=[
 	{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
 	{name: 'mario', beltColor: 'orange', age: 45, id: 2},
 	{name: 'luigi', beltColor: 'brown', age: 35, id: 3}
 	]
-	const handleClick=(id)=>{
+
+const handleClick=(id)=>{
 		people =people.filter( person => person.id !== id)
 	}
+const toggleModal=()=>{
+	showModal = !showModal
+}
+
 </script>
-<Modal message='Sign up for offers' isPromo={true}/>
+
+
+<Modal message='Sign up for offers' isPromo={true} {showModal} on:click={toggleModal}/>
 <main>
+<button on:click={toggleModal}>Open Modal</button>
 { #each people as person (person.id)}
 <div>
 <h4>{person.name}</h4>

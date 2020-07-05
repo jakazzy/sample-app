@@ -1,10 +1,10 @@
 <script>
-let showModal=true;
+export let showModal= false;
 export let isPromo = false;
 export let message='sign  up message'
 </script>
 {#if showModal}
-<div class="backdrop" class:promo={isPromo}>
+<div class="backdrop" class:promo={isPromo} on:click>
     <div class="modal">
         <p>{message}</p>
     </div>
