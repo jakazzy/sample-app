@@ -1,4 +1,6 @@
 <script>
+import Modal from './Modal.svelte'
+
 let people=[
 	{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
 	{name: 'mario', beltColor: 'orange', age: 45, id: 2},
@@ -8,7 +10,7 @@ let people=[
 		people =people.filter( person => person.id !== id)
 	}
 </script>
-
+<Modal/>
 <main>
 { #each people as person (person.id)}
 <div>
