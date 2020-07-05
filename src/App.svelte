@@ -13,6 +13,9 @@ let people=[
 { #each people as person (person.id)}
 <div>
 <h4>{person.name}</h4>
+{#if person.beltColor==='black'}
+<p> <strong>Master Ninja</strong> </p>
+{/if}
 <p> {person.age} years old, {person.beltColor} belt. </p>
 <button on:click={()=>handleClick(person.id)}> delete</button>
 </div>
