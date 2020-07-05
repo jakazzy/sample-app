@@ -1,22 +1,13 @@
 <script>
-	let name= 'Adwoa';
-	let beltColor='black'
-
-	const handleClick =()=>{
-		beltColor='orange'
-	}
-	
-	const handleInput=(event)=>{
-		beltColor= event.target.value
-	}
+let people=[
+	{name: 'yoshi', beltColor: 'black', age: 25, id: 1},
+	{name: 'mario', beltColor: 'orange', age: 45, id: 2},
+	{name: 'luigi', beltColor: 'brown', age: 35, id: 3}
+	]
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p style="color: {beltColor}">She has {beltColor} belt color</p>
-	<button on:click={ handleClick}> update belt color </button>
-	<!-- <input type="text" on:input={handleInput} value={beltColor}> -->
-	<input type="text" bind:value ={beltColor}>
+	
 </main>
 
 <style>
@@ -27,12 +18,12 @@
 		margin: 0 auto;
 	}
 
-	h1 {
+	/* h1 {
 		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
-	}
+	} */
 
 	@media (min-width: 640px) {
 		main {
