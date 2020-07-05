@@ -7,6 +7,14 @@ let people=[
 </script>
 
 <main>
+{ #each people as person }
+<div>
+<h4>{person.name}</h4>
+<p> {person.age} years old, {person.beltColor} belt. </p>
+</div>
+{ :else }
+<p> There are no people to show...</p>
+{ /each}
 	
 </main>
 
