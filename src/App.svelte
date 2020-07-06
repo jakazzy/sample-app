@@ -16,11 +16,16 @@ const toggleModal=()=>{
 	showModal = !showModal
 }
 
+const addPerson =(event)=>{
+	const person= event.detail
+	people = [person, ...people]
+	showModal=false
+}
 </script>
 
 
 <Modal  isPromo={true} {showModal} on:click={toggleModal}>
-	<AddPersonForm/>
+	<AddPersonForm on:addPerson={addPerson} />
 </Modal>
 <main>
 	<button on:click={toggleModal}>Open Modal</button>
@@ -31,6 +36,15 @@ const toggleModal=()=>{
 		<p> <strong>Master Ninja</strong> </p>
 		{/if}
 		<p> {person.age} years old, {person.beltColor} belt. </p>
+		{ #if person.skills}
+			<p>Skills: </p>
+			<ul>
+				{ #each person.skills as skill }
+				<li>{skill}</li>
+				{/each}
+			</ul>
+		{ /if }
+		
 		<button on:click={()=>handleClick(person.id)}> delete</button>
 	</div>
 	{ :else }
@@ -53,6 +67,12 @@ const toggleModal=()=>{
 		font-size: 4em;
 		font-weight: 100;
 	} */
+
+	ul{margin: 0}
+	li{
+		display: inline-block;
+		margin-right: 5px
+	}
 
 	@media (min-width: 640px) {
 		main {
