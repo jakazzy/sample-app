@@ -1,15 +1,17 @@
 <script>
 export let showModal= false;
 export let isPromo = false;
-export let message='sign  up message'
 </script>
+
 {#if showModal}
-<div class="backdrop" class:promo={isPromo} on:click>
+<div class="backdrop" class:promo={isPromo} on:click|self>
     <div class="modal">
-        <p>{message}</p>
+        <slot></slot>
     </div>
 </div>
 {/if}
+
+
 <style>
 .backdrop{
     width: 100%;

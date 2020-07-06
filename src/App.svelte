@@ -1,5 +1,6 @@
 <script>
 import Modal from './Modal.svelte'
+import AddPersonForm from './AddPersonForm.svelte'
 
 let showModal= false
 let people=[
@@ -18,21 +19,23 @@ const toggleModal=()=>{
 </script>
 
 
-<Modal message='Sign up for offers' isPromo={true} {showModal} on:click={toggleModal}/>
+<Modal  isPromo={true} {showModal} on:click={toggleModal}>
+	<AddPersonForm/>
+</Modal>
 <main>
-<button on:click={toggleModal}>Open Modal</button>
-{ #each people as person (person.id)}
-<div>
-<h4>{person.name}</h4>
-{#if person.beltColor==='black'}
-<p> <strong>Master Ninja</strong> </p>
-{/if}
-<p> {person.age} years old, {person.beltColor} belt. </p>
-<button on:click={()=>handleClick(person.id)}> delete</button>
-</div>
-{ :else }
-<p> There are no people to show...</p>
-{ /each}
+	<button on:click={toggleModal}>Open Modal</button>
+	{ #each people as person (person.id)}
+	<div>
+		<h4>{person.name}</h4>
+		{#if person.beltColor==='black'}
+		<p> <strong>Master Ninja</strong> </p>
+		{/if}
+		<p> {person.age} years old, {person.beltColor} belt. </p>
+		<button on:click={()=>handleClick(person.id)}> delete</button>
+	</div>
+	{ :else }
+	<p> There are no people to show...</p>
+	{ /each}
 	
 </main>
 
